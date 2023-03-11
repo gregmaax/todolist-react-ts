@@ -1,5 +1,5 @@
-import React from 'react';
 import { ChangeEvent } from 'react';
+import Button from '../UI/Button';
 import { Card } from '../UI/Card';
 
 export function AddUser() {
@@ -38,12 +38,12 @@ export function AddUser() {
 					/>
 				</div>
 				<div className="text-right">
-					<button
-						type="submit"
+					<Button
 						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+						type="submit"
 					>
 						Enregistrer
-					</button>
+					</Button>
 				</div>
 			</form>
 		</Card>

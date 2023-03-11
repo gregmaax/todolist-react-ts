@@ -17,7 +17,7 @@ export function AddUser() {
 						htmlFor="titre"
 						className="block text-gray-700 text-sm font-bold mb-2"
 					>
-						Titre
+						Titre de la note
 					</label>
 					<input
 						id="titre"
@@ -30,7 +30,7 @@ export function AddUser() {
 						htmlFor="note"
 						className="block text-gray-700 text-sm font-bold mb-2"
 					>
-						Note
+						Contenu
 					</label>
 					<textarea
 						id="note"

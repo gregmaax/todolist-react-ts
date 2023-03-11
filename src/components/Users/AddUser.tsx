@@ -30,7 +30,7 @@ export function AddUser() {
 						htmlFor="note"
 						className="block text-gray-700 text-sm font-bold mb-2"
 					>
-						Contenu
+						Contenu de la note
 					</label>
 					<textarea
 						id="note"

@@ -39,7 +39,7 @@ export function AddUser(props: AddNoteProp) {
 				<div className="mb-4">
 					<label
 						htmlFor="titre"
-						className="block text-gray-700 text-sm font-bold mb-2"
+						className="block text-gray-700 text-sm font-bold underline mb-2"
 					>
 						Titre de la note
 					</label>
@@ -54,7 +54,7 @@ export function AddUser(props: AddNoteProp) {
 				<div className="mb-4">
 					<label
 						htmlFor="note"
-						className="block text-gray-700 text-sm font-bold mb-2"
+						className="block text-gray-700 text-sm underline font-bold mb-2"
 					>
 						Contenu de la note
 					</label>

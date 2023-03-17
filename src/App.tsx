@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from './components/UI/Card';
-import { AddUser } from './components/Users/AddUser';
+import { AddNote } from './components/Users/AddNote';
 import { NotesList } from './components/Users/NotesList';
 
 export type Notes = {
@@ -22,7 +22,7 @@ function App() {
 
 	return (
 		<div>
-			<AddUser onAddNotes={addNotesHandler} />
+			<AddNote onAddNotes={addNotesHandler} />
 			<NotesList notes={notesList} />
 		</div>
 	);

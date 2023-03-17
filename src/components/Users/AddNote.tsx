@@ -6,7 +6,7 @@ type AddNoteProp = {
 	onAddNotes: (uTitre: string, uNote: string) => void;
 };
 
-export function AddUser(props: AddNoteProp) {
+export function AddNote(props: AddNoteProp) {
 	const [titre, setTitre] = useState('');
 	const [note, setNote] = useState('');
 

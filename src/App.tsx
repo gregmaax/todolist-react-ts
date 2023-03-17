@@ -9,9 +9,7 @@ export type Notes = {
 	note: string;
 };
 function App() {
-	const [notesList, setNotesList] = useState<Notes[]>([
-		{ id: '1', titre: 'React', note: 'To-Do-List' },
-	]);
+	const [notesList, setNotesList] = useState<Notes[]>([]);
 
 	const addNotesHandler = (uTitre: string, uNote: string) => {
 		setNotesList((prevNotesList): Notes[] => {

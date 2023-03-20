@@ -1,60 +1,39 @@
-import { ChangeEvent, Fragment, useState } from 'react';
+import { ChangeEvent, Fragment, useRef } from 'react';
 import Button from '../UI/Button';
 import { Card } from '../UI/Card';
-import { ErrorModal } from '../UI/ErrorModal';
 
 type AddNoteProp = {
 	onAddNotes: (uTitre: string, uNote: string) => void;
 };
 
-type ErrorProp = {
-	title: string | null;
-	message: string | null;
-};
-
 export function AddNote(props: AddNoteProp) {
-	const [titre, setTitre] = useState('');
-	const [note, setNote] = useState('');
+	const titreInputRef = useRef<HTMLInputElement | null>(null);
+	const noteInputRef = useRef<HTMLTextAreaElement | null>(null);
 
-	const [error, setError] = useState<ErrorProp>();
+	function resetInputValues() {
+		if (titreInputRef.current != null) {
+			titreInputRef.current.value = '';
+		}
+		if (noteInputRef.current != null) {
+			noteInputRef.current.value = '';
+		}
+	}
 
 	function addNoteHandler(event: ChangeEvent<HTMLFormElement>) {
+		const enteredTitre = titreInputRef.current?.value;
+		const enteredNote = noteInputRef.current?.value;
 		event.preventDefault();
 
-		if (titre.trim().length === 0 || note.trim().length === 0) {
-			setError({
-				title: 'Note invalide',
-				message: 'Entrez une note valide (titre + note)',
-			});
+		if (enteredTitre?.trim().length === 0 || enteredNote?.trim().length === 0) {
 			return;
 		}
 
-		props.onAddNotes(titre, note);
-		setTitre('');
-		setNote('');
-	}
-
-	function titreChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-		setTitre(event.target.value);
-	}
-
-	function noteChangeHandler(event: ChangeEvent<HTMLTextAreaElement>) {
-		setNote(event.target.value);
-	}
-
-	function errorHandler() {
-		setError({ title: null, message: null });
+		props.onAddNotes(enteredTitre as string, enteredNote as string);
+		resetInputValues();
 	}
 
 	return (
 		<Fragment>
-			{error && (
-				<ErrorModal
-					title={error.title || null}
-					message={error.message}
-					onConfirm={errorHandler}
-				/>
-			)}
 			<Card>
 				<form
 					onSubmit={addNoteHandler}
@@ -70,8 +49,7 @@ export function AddNote(props: AddNoteProp) {
 						<input
 							id="titre"
 							type="text"
-							onChange={titreChangeHandler}
-							value={titre}
+							ref={titreInputRef}
 							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						/>
 					</div>
@@ -84,8 +62,7 @@ export function AddNote(props: AddNoteProp) {
 						</label>
 						<textarea
 							id="note"
-							onChange={noteChangeHandler}
-							value={note}
+							ref={noteInputRef}
 							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						/>
 					</div>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Card } from './components/UI/Card';
+import { useState } from 'react';
 import { AddNote } from './components/Users/AddNote';
 import { NotesList } from './components/Users/NotesList';
 

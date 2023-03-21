@@ -11,7 +11,7 @@ export function NotesList(props: NotesProps) {
 		props.notes.map((u) => (
 			<div
 				key={u.id}
-				className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+				className="block max-w-sm p-6 mt-1 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
 			>
 				<h5 className="mb-2 text-xl font-bold tracking-tight text-purple-800 dark:text-white">
 					{u.titre}

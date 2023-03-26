@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { AddNote } from './components/Users/AddNote';
-import { NotesList } from './components/Users/NotesList';
+import { AddNote } from './components/Notes/AddNote';
+import { NotesList } from './components/Notes/NotesList';
 
 export type Notes = {
 	id: string;
